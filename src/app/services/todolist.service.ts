@@ -10,11 +10,10 @@ export class TodolistService {
 
   //To do
   //Define the route address to the server
-  private url_get = '';
-  private url_post = '';
-  private url_put = '';
-  private url_delete = '';
-
+  private url_get = 'http://localhost:3000/api/get_task';
+  private url_post = 'http://localhost:3000/api/post_task';
+  private url_put = 'http://localhost:3000/api/edit_task';
+  private url_delete = 'http://localhost:3000/api/delete_task';
 
   constructor(private httpClient:HttpClient) { }
 
@@ -32,6 +31,8 @@ export class TodolistService {
     const minutes = date.getMinutes() < 10?'0'+date.getMinutes().toString():date.getMinutes().toString();
 
     const finaldate = year+'-'+month+'-'+day+' '+hour+minutes;
+
+    const finaltime = +hour+minutes;
 
     const data = {description:description,created_at:finaldate};
 

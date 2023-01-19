@@ -35,17 +35,15 @@ export class AppComponent {
 
 
   addItem(description: string) {
-
+    
     if(description === ''){
       return;
     }
-
     this.todolist.addTodo(description).subscribe(result=>{
-      if(result){
+      if (result) {
         this.getItems();
       }
     })
-
   }
 
   editTodo(index:number):void{
